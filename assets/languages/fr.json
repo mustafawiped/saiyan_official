@@ -1,0 +1,27 @@
+{
+    "appDeveloperInfo" : "[FR] developed by mustafawiped",
+    "appVersion" : "version: {}",
+    
+
+    "vUsername" : "Username",
+    "vPassword" : "Password",
+    "vLogin" : "Login",
+    "vDontHaveAccountYet" : "Don't Have an Account Yet?",
+    "vRegister" : "Register Now",
+    "vVirtualizedInfo" : "Created accounts are stored locally on your device unless they are virtualized. To use your account on other devices, enable virtualization in Settings.",
+    "" : "",
+
+    "dbUserNotFound": "User not found.",
+    "dbPasswordIsIncorrect": "Password is incorrect. Please check the password.",
+
+
+    "vmUsernameOrPswCannotBeEmpity" : "Username or password cannot be left empity",
+    "vmSuccessfulLogin" : "You have successful logged in to your account.",
+    "vmUserAgreementRequired" : "You must read and accept the user agreement to create an account.",
+    "vmFillInYourInformation" : "Please fill in all required fields.",
+    "vmUsernameLengthError" : "Username must be between 3 and 25 characters.",
+    "vmIsNotValidEmail" : "Please enter a valid email address.",
+    "vmPasswordCharacterError" : "Password must be at least 4 characters.",
+    "vmPasswordAndConfirmIsNotSameError" : "Password and confirm password do not match."
+
+}

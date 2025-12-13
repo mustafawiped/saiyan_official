@@ -1,3 +1,4 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:saiyan_official/core/shared/helpers/loading.dart';
 import 'package:saiyan_official/response/local/local_user_db.dart';
@@ -29,7 +30,7 @@ class LoginPageViewModel extends ChangeNotifier {
     if (username.isEmpty || password.isEmpty) {
       ScreenMessage.showErrorToast(
         context,
-        "Kullanıcı adı veya şifre boş olamaz.",
+        context.tr("vmUsernameOrPswCannotBeEmpity"),
       );
       return;
     }
@@ -47,10 +48,7 @@ class LoginPageViewModel extends ChangeNotifier {
       // close loading
       Navigator.pop(context);
 
-      ScreenMessage.showSuccessToast(
-        context,
-        "Başarıyla hesaba giriş yapıldı!",
-      );
+      ScreenMessage.showSuccessToast(context, context.tr("vmSuccessfulLogin"));
 
       router.pushAndPopUntil(HomeRoute(), predicate: (route) => false);
     } else {

@@ -1,4 +1,5 @@
 import 'package:bot_toast/bot_toast.dart';
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:saiyan_official/router/router.dart';
 
@@ -15,6 +16,9 @@ class _SaiyanAppState extends State<SaiyanApp> {
     return MaterialApp.router(
       debugShowCheckedModeBanner: false,
       builder: BotToastInit(),
+      locale: context.locale,
+      supportedLocales: context.supportedLocales,
+      localizationsDelegates: context.localizationDelegates,
       themeMode: ThemeMode.system,
       theme: ThemeData(
         brightness: Brightness.light,

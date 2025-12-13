@@ -1,3 +1,4 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:saiyan_official/model/local/User/user_model.dart';
 import 'package:path/path.dart';
 import 'package:sqflite/sqflite.dart';
@@ -112,12 +113,12 @@ class LocalUserDb {
     );
 
     if (result.isEmpty) {
-      return "Böyle bir kullanıcı bulunamadı.";
+      return tr("dbUserNotFound");
     } else {
       if (password == result[0]["password"]) {
         return "success";
       } else {
-        return "Şifre hatalı, lütfen tekrar kontrol ediniz.";
+        return tr("dbPasswordIsIncorrect");
       }
     }
   }

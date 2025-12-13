@@ -1,4 +1,5 @@
 import 'package:auto_route/auto_route.dart';
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:saiyan_official/core/resources/app_assets.dart';
@@ -66,7 +67,8 @@ class _LoginPageState extends State<LoginPage> {
         height: 25,
         child: Center(
           child: SuffaText(
-            title: "developed by mustafawiped | version: $appVersion",
+            title:
+                "${context.tr("appDeveloperInfo")} | ${context.tr("appVersion", args: [appVersion])}",
             textFont: TextStyle(
               fontSize: SuffaSizes.smallTextSize,
               color: AppColors.textSecondary(context),
@@ -107,7 +109,7 @@ class _LoginPageState extends State<LoginPage> {
                 fontSize: 20,
                 fontWeight: FontWeight.bold,
               ).textFont,
-              hintText: "Kullanıcı Adı",
+              hintText: context.tr("vUsername"),
               prefixIcon: Icons.person,
               keyboardType: TextInputType.text,
             ),
@@ -132,7 +134,7 @@ class _LoginPageState extends State<LoginPage> {
                 color: AppColors.textSecondary(context),
                 fontSize: 20,
               ).textFont,
-              hintText: "Şifre",
+              hintText: context.tr("vPassword"),
               prefixIcon: Icons.password,
               pswFunc: () => viewModel.changePswState(),
               pswState: viewModel.pswState,
@@ -144,7 +146,7 @@ class _LoginPageState extends State<LoginPage> {
 
             // login button
             SuffaButton(
-              title: "Giriş",
+              title: context.tr("vLogin"),
               onClick: () => viewModel.logIn(context),
               bgColor: AppColors.primary(context),
               titleSize: SuffaSizes.xxLargeTextSize,
@@ -189,7 +191,7 @@ class _LoginPageState extends State<LoginPage> {
         children: [
           SuffaText(
             alignment: Alignment.centerRight,
-            title: "Henüz bir hesabın yok mu?",
+            title: context.tr("vDontHaveAccountYet"),
             maxLines: 1,
             textFont: TextStyle(
               fontSize: SuffaSizes.xMediumTextSize,
@@ -202,7 +204,7 @@ class _LoginPageState extends State<LoginPage> {
             onTap: () => viewModel.register(context),
             child: SuffaText(
               alignment: Alignment.center,
-              title: "Kayıt Ol!",
+              title: context.tr("vRegister"),
               maxLines: 1,
               textFont: TextStyle(
                 fontSize: SuffaSizes.mediumTextSize,

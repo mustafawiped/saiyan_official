@@ -1,0 +1,37 @@
+{
+    "appDeveloperInfo" : "[EN] developed by mustafawiped",
+    "appVersion" : "version: {}",
+    
+
+    "vUsername" : "Username",
+    "vEmail" : "Email",
+    "vPassword" : "Password",
+    "vPasswordAgain" : "Password Again",
+    "vLogin" : "Login",
+    "vDontHaveAccountYet" : "Don't Have an Account Yet?",
+    "vRegister" : "Register Now",
+    "vVirtualizedInfo" : "Created accounts are stored locally on your device unless they are virtualized. To use your account on other devices, enable virtualization in Settings.",
+    "vNo" : "No",
+    "vUserAgreement" : "I have read and accept the user agreement.",
+    "vYouHaveAlreadyAccount" : "Do you already have account?",
+
+
+    "dbUserNotFound": "User not found.",
+    "dbPasswordIsIncorrect": "Password is incorrect. Please check the password.",
+
+
+    "vmUsernameOrPswCannotBeEmpity" : "Username or password cannot be left empity",
+    "vmSuccessfulLogin" : "You have successful logged in to your account.",
+    "vmUserAgreementRequired" : "You must read and accept the user agreement to create an account.",
+    "vmFillInYourInformation" : "Please fill in all required fields.",
+    "vmUsernameLengthError" : "Username must be between 3 and 25 characters.",
+    "vmIsNotValidEmail" : "Please enter a valid email address.",
+    "vmPasswordCharacterError" : "Password must be at least 4 characters.",
+    "vmPasswordAndConfirmIsNotSameError" : "Password and confirm password do not match.",
+    "vmThisUsernameAlreadyExists": "This username is already in use. Please try a different username.",
+    "vmDoYouWannaLogin": "Do you want to log in to this account?",
+    "vmDoYouWannaLoginWithDesc" : "You have successfully created an account. Would you like to log in to your newly created account now?",
+    "vmLoginWithSuccessful": "You have successfully logged in!",
+    "vmSomethingWentWrong" : "Something went wrong, failed."
+
+}

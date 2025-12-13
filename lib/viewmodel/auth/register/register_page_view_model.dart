@@ -1,3 +1,4 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 import 'package:saiyan_official/core/shared/helpers/loading.dart';
@@ -28,7 +29,7 @@ class RegisterPageViewModel extends ChangeNotifier {
     if (!userAgreement) {
       ScreenMessage.showErrorToast(
         context,
-        "Hesap oluşturabilmek için kullanıcı sözleşmesini okumak ve kabul etmek zorundasınız.",
+        context.tr("vmUserAgreementRequired"),
       );
       return;
     }
@@ -61,17 +62,17 @@ class RegisterPageViewModel extends ChangeNotifier {
 
         ScreenMessage.showErrorToast(
           context,
-          "Zaten böyle bir hesap kayıtlı. Farklı bir kullanıcı adı deneyin.",
+          context.tr("vmThisUsernameAlreadyExists"),
         );
         return;
       }
 
       DateTime now = DateTime.now();
-      String today = DateFormat('d MMMM yyyy', 'tr').format(now);
+      String formattedDate = DateFormat('yyyy-MM-dd HH:mm:ss').format(now);
 
       LocalUserModel userData = LocalUserModel(
         username: username,
-        joined: "$today'te Katıldı.",
+        joined: formattedDate,
         email: email,
         password: password,
         profilePicture: "",
@@ -84,16 +85,16 @@ class RegisterPageViewModel extends ChangeNotifier {
       if (dbState) {
         AppPopupHelper.showPopup(
           context,
-          "Giriş Yapmak İster Misin?",
-          "Başarıyla hesap oluşturdun, hemen yeni oluşturduğun hesaba giriş yapmak ister misin?",
-          "Giriş Yap",
-          "Hayır",
+          tr("vmDoYouWannaLogin"),
+          tr("vmDoYouWannaLoginWithDesc"),
+          tr("vLogin"),
+          tr("vNo"),
           () async {
             await SharedUtils.addOrUpdateShared(username);
 
             ScreenMessage.showSuccessToast(
               context,
-              "Başarıyla hesaba giriş yapıldı!",
+              tr("vmLoginWithSuccessful"),
             );
 
             router.pushAndPopUntil(HomeRoute(), predicate: (route) => false);
@@ -105,10 +106,7 @@ class RegisterPageViewModel extends ChangeNotifier {
           type: PopupType.question,
         );
       } else {
-        ScreenMessage.showErrorToast(
-          context,
-          "Bir şeyler ters gitti, hesap oluşturulamadı.",
-        );
+        ScreenMessage.showErrorToast(context, tr("vmSomethingWentWrong"));
       }
     }
   }
@@ -127,7 +125,7 @@ class RegisterPageViewModel extends ChangeNotifier {
         passwordAgain.isEmpty) {
       ScreenMessage.showErrorToast(
         context,
-        "Lütfen bilgilerinizi eksiksiz bir şekilde doldurun.",
+        context.tr("vmFillInYourInformation"),
       );
       return false;
     }
@@ -136,7 +134,7 @@ class RegisterPageViewModel extends ChangeNotifier {
     if (username.length < 3 || username.length > 25) {
       ScreenMessage.showErrorToast(
         context,
-        "Kullanıcı adı minimum 3, maksimum 25 karakter olabilir.",
+        context.tr("vmUsernameLengthError"),
       );
       return false;
     }
@@ -145,17 +143,14 @@ class RegisterPageViewModel extends ChangeNotifier {
         !(email.contains("@")) ||
         !(email.contains(".com")) ||
         email == "@.com") {
-      ScreenMessage.showErrorToast(
-        context,
-        "Lütfen geçerli bir e-posta adresi giriniz.",
-      );
+      ScreenMessage.showErrorToast(context, context.tr("vmIsNotValidEmail"));
       return false;
     }
 
     if (password.length < 4) {
       ScreenMessage.showErrorToast(
         context,
-        "Şifre minimum 4 karakter olabilir.",
+        context.tr("vmPasswordCharacterError"),
       );
       return false;
     }
@@ -163,7 +158,7 @@ class RegisterPageViewModel extends ChangeNotifier {
     if (password != passwordAgain) {
       ScreenMessage.showErrorToast(
         context,
-        "Şifre ile şifre tekrarı birbiriyle uyuşmuyor.",
+        context.tr("vmPasswordAndConfirmIsNotSameError"),
       );
       return false;
     }

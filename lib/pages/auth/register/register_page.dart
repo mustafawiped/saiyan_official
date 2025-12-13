@@ -1,4 +1,5 @@
 import 'package:auto_route/auto_route.dart';
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:saiyan_official/core/resources/app_colors.dart';
@@ -48,8 +49,7 @@ class _RegisterPageState extends State<RegisterPage> {
       bottomNavigationBar: IntrinsicHeight(
         child: Center(
           child: SuffaText(
-            title:
-                "Oluşturulan hesaplar sanallaştırılmadığı sürece yerel cihazınızda saklanır. Hesabınızı başka cihazlarda da kullanabilmek için Ayarlar kısmından sanallaştırmalısınız.",
+            title: context.tr("vVirtualizedInfo"),
             textFont: TextStyle(
               fontSize: SuffaSizes.smallTextSize,
               color: AppColors.textSecondary(context),
@@ -73,7 +73,7 @@ class _RegisterPageState extends State<RegisterPage> {
 
               // header
               SuffaText(
-                title: "Kayıt Ol",
+                title: context.tr("vRegister"),
                 textFont: TextStyle(
                   color: AppColors.textPrimary(context),
                   fontSize: SuffaSizes.bigLargeTextSize,
@@ -100,7 +100,7 @@ class _RegisterPageState extends State<RegisterPage> {
                   fontSize: 20,
                   fontWeight: FontWeight.bold,
                 ).textFont,
-                hintText: "Kullanıcı Adı",
+                hintText: tr("vUsername"),
                 prefixIcon: Icons.person,
                 keyboardType: TextInputType.text,
               ),
@@ -124,7 +124,7 @@ class _RegisterPageState extends State<RegisterPage> {
                   fontSize: 20,
                   fontWeight: FontWeight.bold,
                 ).textFont,
-                hintText: "E-Posta Adresi",
+                hintText: tr("vEmail"),
                 prefixIcon: Icons.mail,
                 keyboardType: TextInputType.emailAddress,
               ),
@@ -148,7 +148,7 @@ class _RegisterPageState extends State<RegisterPage> {
                   color: AppColors.textSecondary(context),
                   fontSize: 20,
                 ).textFont,
-                hintText: "Şifre",
+                hintText: tr("vPassword"),
                 prefixIcon: Icons.password,
                 pswFunc: () => viewModel.changePswState(),
                 pswState: viewModel.pswState,
@@ -174,7 +174,7 @@ class _RegisterPageState extends State<RegisterPage> {
                   color: AppColors.textSecondary(context),
                   fontSize: 20,
                 ).textFont,
-                hintText: "Şifre Tekrarı",
+                hintText: tr("vPasswordAgain"),
                 prefixIcon: Icons.password,
                 pswFunc: () => viewModel.changePswState(),
                 pswState: viewModel.pswState,
@@ -188,7 +188,7 @@ class _RegisterPageState extends State<RegisterPage> {
               Row(
                 children: [
                   SuffaCheckBox(
-                    text: "Kullanıcı Sözleşmesini okudum, onaylıyorum.",
+                    text: tr("vUserAgreement"),
                     checkState: viewModel.userAgreement,
                     activeColor: AppColors.primary(context),
                     textFont: TextStyle(
@@ -207,7 +207,7 @@ class _RegisterPageState extends State<RegisterPage> {
 
               // register button
               SuffaButton(
-                title: "Kayıt Ol",
+                title: tr("vRegister"),
                 onClick: () => viewModel.registerFunc(context),
                 bgColor: AppColors.primary(context),
                 titleSize: SuffaSizes.xxLargeTextSize,
@@ -216,7 +216,7 @@ class _RegisterPageState extends State<RegisterPage> {
               // sizedbox
               20.h,
 
-              // allready have acc?
+              // already have acc?
               buildLogin(),
             ],
           ),
@@ -234,7 +234,7 @@ class _RegisterPageState extends State<RegisterPage> {
         children: [
           SuffaText(
             alignment: Alignment.centerRight,
-            title: "Zaten bir hesabın var mı?",
+            title: tr("vYouHaveAlreadyAccount"),
             maxLines: 1,
             textFont: TextStyle(
               fontSize: SuffaSizes.xMediumTextSize,
@@ -247,7 +247,7 @@ class _RegisterPageState extends State<RegisterPage> {
             onTap: () => Navigator.pop(context),
             child: SuffaText(
               alignment: Alignment.center,
-              title: "Giriş Yap!",
+              title: tr("vLogin"),
               maxLines: 1,
               textFont: TextStyle(
                 fontSize: SuffaSizes.mediumTextSize,

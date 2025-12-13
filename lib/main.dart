@@ -1,5 +1,6 @@
 import 'dart:async';
 
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/date_symbol_data_local.dart';
@@ -17,7 +18,20 @@ void main() {
       WidgetsFlutterBinding.ensureInitialized();
       // await MobileAds.instance.initialize();
       await initializeDateFormatting('tr_TR', null);
-      runApp(const SaiyanApp());
+      await EasyLocalization.ensureInitialized();
+      runApp(
+        EasyLocalization(
+          supportedLocales: [
+            Locale('tr'),
+            Locale('en'),
+            Locale('de'),
+            Locale("fr"),
+          ],
+          path: 'assets/languages',
+          fallbackLocale: Locale('en', 'US'),
+          child: SaiyanApp(),
+        ),
+      );
     },
     (error, stack) {
       if (kDebugMode) {
